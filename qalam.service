@@ -1,0 +1,17 @@
+[Unit]
+Description=Qalam Arabic Academy Mini App
+After=network-online.target
+
+[Service]
+User=qalam
+WorkingDirectory=/opt/qalam
+EnvironmentFile=/opt/qalam/.env
+ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning server.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=full
+ReadWritePaths=/opt/qalam/data
+
+[Install]
+WantedBy=multi-user.target
